@@ -142,7 +142,7 @@ export default function AIChatbotView() {
     const turns: ChatTurn[] = [];
     for (const m of recent) {
       if (m.type === 'user') turns.push({ role: 'user', text: m.text });
-      else if (m.summary !== undefined || m.text) turns.push({ role: 'model', text: m.text ?? '' });
+      else if (m.text !== undefined || m.text) turns.push({ role: 'model', text: m.text ?? '' });
     }
     return turns;
   };
