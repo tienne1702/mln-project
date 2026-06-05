@@ -85,8 +85,25 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
-
       </div>
+
+      {/* AI Usage Declaration Footer */}
+      <div className="absolute bottom-6 left-0 right-0 z-10 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <div className="max-w-max mx-auto px-6 py-3 rounded-full backdrop-blur-md border border-white/10 bg-black/20 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 shadow-2xl">
+          <p className="text-[10px] font-black uppercase tracking-widest text-gray-500">AI Usage Declaration</p>
+          <div className="flex items-center gap-6 text-xs sm:text-sm">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#10a37f] animate-pulse"></span>
+              <span className="text-gray-400 font-medium">Nội dung biên soạn: <strong className="text-[#10a37f]">ChatGPT</strong></span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#1a73e8] animate-pulse"></span>
+              <span className="text-gray-400 font-medium">Lập trình & Thiết kế: <strong className="text-[#1a73e8] drop-shadow-[0_0_8px_rgba(26,115,232,0.5)]">Gemini</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

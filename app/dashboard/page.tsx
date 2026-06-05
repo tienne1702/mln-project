@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Gamepad2,
   Home,
+  Network,
 } from 'lucide-react';
 import Link from 'next/link';
 import OverviewView from '../components/OverviewView';
@@ -23,6 +24,7 @@ import SignificanceView from '../components/SignificanceView';
 import GlossaryView from '../components/GlossaryView';
 import AIChatbotView from '../components/AIChatbotView';
 import MiniGameView from '../components/MiniGameView';
+import Map3DView from '../components/Map3DView';
 
 interface MenuItem {
   id: number;
@@ -98,6 +100,13 @@ export default function Dashboard() {
       sublabel: 'Ôn tập kiến thức',
       icon: <Gamepad2 className="w-5 h-5" />,
       component: <MiniGameView />,
+    },
+    {
+      id: 10,
+      label: 'Bản đồ 3D',
+      sublabel: 'Vũ trụ kiến thức',
+      icon: <Network className="w-5 h-5" />,
+      component: <Map3DView onNavigate={setActiveTab} />,
     },
   ];
 
@@ -185,7 +194,18 @@ export default function Dashboard() {
             <Home className="w-4 h-4" />
             Về Trang chủ
           </Link>
-          <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
+          
+          <div className="text-center space-y-1.5 mt-2 p-2 rounded-lg" style={{ background: 'rgba(0,0,0,0.2)' }}>
+            <p className="text-[10px] font-bold tracking-wider uppercase mb-1" style={{ color: 'var(--text-muted)' }}>AI Usage Declaration</p>
+            <p className="text-[11px] font-medium" style={{ color: 'var(--text-secondary)' }}>
+              📝 Nội dung: <span className="text-[#10a37f]">ChatGPT</span>
+            </p>
+            <p className="text-[11px] font-medium" style={{ color: 'var(--text-secondary)' }}>
+              💻 Lập trình: <span className="text-[#1a73e8]">Gemini</span>
+            </p>
+          </div>
+
+          <p className="text-[10px] text-center mt-1" style={{ color: 'var(--text-muted)' }}>
             © 2024 · Nhóm Lý Luận Chính Trị
           </p>
         </div>
@@ -212,7 +232,7 @@ export default function Dashboard() {
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto">
-          <div className={activeTab === 8 ? 'h-full' : 'p-8'}>
+          <div className={(activeTab === 8 || activeTab === 10) ? 'h-full' : 'p-8'}>
             {activeItem?.component}
           </div>
         </div>
